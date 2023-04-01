@@ -1,12 +1,17 @@
 
 import java.util.List;
+import java.io.*;
 
-public class Human {
+
+public class Human implements Serializable {
     private String name;
     private Gender gender;
     private Human father;
     private Human mother;
     List<Human> kids;
+
+
+
 
     public Human(String name, Gender gender, Human father, Human mother, List<Human> kids) {
         this.name = name;
@@ -58,15 +63,15 @@ public class Human {
     }
 
     public String getFather() {
-        return "father: " + father.toString();
+        return "father - " + father.toString();
     }
 
     public String getMother() {
-        return "mother: " + mother.toString();
+        return "mother - " + mother.toString();
     }
 
-    public String getKids() {
-        return "kids: " + kids.toString();
+    public String getKid() {
+        return "kid: " + kids.toString();
 
     }
 
@@ -75,13 +80,13 @@ public class Human {
 
         String str;
 
-        str = getName() + " - " + getGender();
+        str = getName();
         if (father != null)
-            str += "; " + getFather() + ";";
+            str += ": " + getFather() + ";";
         if (mother != null)
             str += " " + getMother();
         if (kids != null)
-            str += " " + getKids();
+            str += " " + getKid();
 
         return str;
     }
