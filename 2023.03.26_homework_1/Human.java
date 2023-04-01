@@ -1,46 +1,94 @@
-public class Human {
-String name;
-Gender gender;
-Human father;
-Human mother;
+
+import java.util.List;
+import java.io.*;
+
+
+public class Human implements Serializable {
+    private String name;
+    private Gender gender;
+    private Human father;
+    private Human mother;
+    List<Human> kids;
 
 
 
-public Human(String name, Gender gender, Human father, Human mother){
-    this.name =name;
-    this.gender=gender;
-    this.father=father;
-    this.mother=mother;
-}
 
-public Human(String name, Gender gender){
-    this.name =name;
-    this.gender=gender;
-    
-}
+    public Human(String name, Gender gender, Human father, Human mother, List<Human> kids) {
+        this.name = name;
+        this.gender = gender;
+        this.father = father;
+        this.mother = mother;
+        this.kids = kids;
+    }
 
+    public Human(String name, Gender gender, Human father, Human mother) {
+        this.name = name;
+        this.gender = gender;
+        this.father = father;
+        this.mother = mother;
 
-public String getName(){
-    return name;
-    
-}
+    }
 
-public Gender getGender(){
-    return gender;
-}
-public String getFather(){
-    return "father: "+father.toString();
-}
-public String getMother(){
-    return "mother: "+mother.toString();
-}
+    public Human(String name, Gender gender, List<Human> kids) {
+        this.name = name;
+        this.gender = gender;
+        this.kids = kids;
 
+    }
 
+    public Human(String name, Gender gender) {
+        this.name = name;
+        this.gender = gender;
 
-@Override
-public String toString() {
-    
-    return name;
-}
+    }
+
+    public String getName() {
+        return name;
+
+    }
+
+    public Gender getGender() {
+        return gender;
+
+    }
+
+    public Human dadOf() {
+        return father;
+
+    }
+
+    public Human momOf() {
+        return mother;
+
+    }
+
+    public String getFather() {
+        return "father - " + father.toString();
+    }
+
+    public String getMother() {
+        return "mother - " + mother.toString();
+    }
+
+    public String getKid() {
+        return "kid: " + kids.toString();
+
+    }
+
+    @Override
+    public String toString() {
+
+        String str;
+
+        str = getName();
+        if (father != null)
+            str += ": " + getFather() + ";";
+        if (mother != null)
+            str += " " + getMother();
+        if (kids != null)
+            str += " " + getKid();
+
+        return str;
+    }
 
 }
