@@ -1,9 +1,18 @@
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.io.*;
 
-public class FamilyTree implements Serializable {
+public class FamilyTree implements Serializable, Iterable<Human> {
+
+    @Override
+    public Iterator<Human> iterator() {
+        // TODO Auto-generated method stub
+        return new HumanIterator(humans);
+    }
 
     private List<Human> humans;
 
@@ -19,6 +28,10 @@ public class FamilyTree implements Serializable {
     public void add(Human h) {
         humans.add(h);
 
+    }
+
+    public List<Human> getHumanList() {
+        return humans;
     }
 
     public List getInfo() {

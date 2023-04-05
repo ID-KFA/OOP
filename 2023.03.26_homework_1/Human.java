@@ -2,43 +2,44 @@
 import java.util.List;
 import java.io.*;
 
-
 public class Human implements Serializable {
     private String name;
     private Gender gender;
     private Human father;
     private Human mother;
     List<Human> kids;
+    private int year;
 
-
-
-
-    public Human(String name, Gender gender, Human father, Human mother, List<Human> kids) {
+    public Human(String name, Gender gender, int year, Human father, Human mother, List<Human> kids) {
         this.name = name;
         this.gender = gender;
+        this.year = year;
         this.father = father;
         this.mother = mother;
         this.kids = kids;
     }
 
-    public Human(String name, Gender gender, Human father, Human mother) {
+    public Human(String name, Gender gender, int year, Human father, Human mother) {
         this.name = name;
         this.gender = gender;
+        this.year = year;
         this.father = father;
         this.mother = mother;
 
     }
 
-    public Human(String name, Gender gender, List<Human> kids) {
+    public Human(String name, Gender gender, int year, List<Human> kids) {
         this.name = name;
         this.gender = gender;
         this.kids = kids;
+        this.year = year;
 
     }
 
-    public Human(String name, Gender gender) {
+    public Human(String name, Gender gender, int year) {
         this.name = name;
         this.gender = gender;
+        this.year = year;
 
     }
 
@@ -75,12 +76,16 @@ public class Human implements Serializable {
 
     }
 
+    public int getYear() {
+        return year;
+    }
+
     @Override
     public String toString() {
 
         String str;
 
-        str = getName();
+        str = getName() + " (" + getYear() + ")";
         if (father != null)
             str += ": " + getFather() + ";";
         if (mother != null)
