@@ -2,12 +2,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class HumanIterator implements Iterator<Human> {
+public class HumanIterator<E> implements Iterator<E> {
 
-    private List<Human> humans;
+    private List<E> humans;
     private int index;
 
-    public HumanIterator(List<Human> h) {
+    public HumanIterator(List<E> h) {
         this.humans = h;
     }
 
@@ -18,7 +18,7 @@ public class HumanIterator implements Iterator<Human> {
     }
 
     @Override
-    public Human next() {
+    public E next() {
         // TODO Auto-generated method stub
         return humans.get(index++);
     }

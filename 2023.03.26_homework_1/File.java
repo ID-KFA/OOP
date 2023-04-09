@@ -1,8 +1,8 @@
 import java.io.Serializable;
 import java.io.*;
 
-public class File implements Serializable {
-    public FamilyTree obj;
+public class File {
+    private FamilyTree obj;
 
     public void save(FamilyTree obj) throws IOException, ClassNotFoundException {
         this.obj = obj;

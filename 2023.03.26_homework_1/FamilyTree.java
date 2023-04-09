@@ -6,35 +6,37 @@ import java.util.Iterator;
 import java.util.List;
 import java.io.*;
 
-public class FamilyTree implements Serializable, Iterable<Human> {
+public class FamilyTree<E extends Human> implements Serializable, Iterable<E> {
+
+ 
 
     @Override
-    public Iterator<Human> iterator() {
+    public Iterator<E> iterator() {
         // TODO Auto-generated method stub
-        return new HumanIterator(humans);
+        return new HumanIterator<E>(humans);
     }
 
-    private List<Human> humans;
+    private List<E> humans;
 
     public FamilyTree() {
-        this(new ArrayList());
+        this(new ArrayList<E>());
 
     }
 
-    private FamilyTree(List<Human> humans) {
+    private FamilyTree(List<E> humans) {
         this.humans = humans;
     }
 
-    public void add(Human h) {
+    public void add(E h) {
         humans.add(h);
 
     }
 
-    public List<Human> getHumanList() {
+    public List<E> getHumanList() {
         return humans;
     }
 
-    public List getInfo() {
+    public List<E> getInfo() {
         List res = new ArrayList();
         String str;
         for (int i = 0; i < humans.size(); i++) {
@@ -56,9 +58,9 @@ public class FamilyTree implements Serializable, Iterable<Human> {
 
     // }
 
-    public List<Human> getKids(String name) {
+    public List<E> getKids(String name) {
 
-        List<Human> kids = new ArrayList();
+        List<E> kids = new ArrayList<E>();
         for (int i = 0; i < humans.size(); i++) {
 
             if (this.humans.get(i).dadOf() != null) {
