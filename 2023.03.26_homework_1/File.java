@@ -1,27 +1,35 @@
-import java.io.Serializable;
+
 import java.io.*;
 
-public class File {
-    private FamilyTree obj;
+public class File implements Writable {
+    private FamilyTree tree;
 
-    public void save(FamilyTree obj) throws IOException, ClassNotFoundException {
-        this.obj = obj;
+
+    @Override
+    public void save(Serializable serializable) throws IOException {
 
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("Tree.out"));
-        objectOutputStream.writeObject(obj);
+        objectOutputStream.writeObject(serializable);
 
         objectOutputStream.close();
         System.out.println("File saved");
+
     }
 
-    public FamilyTree open() throws IOException, ClassNotFoundException {
+    @Override
+    public FamilyTree read() throws FileNotFoundException, IOException {
 
         ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("Tree.out"));
 
-        this.obj = (FamilyTree) objectInputStream.readObject();
+        try {
+            tree = (FamilyTree) objectInputStream.readObject();
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         System.out.println("File opened");
         objectInputStream.close();
-        return this.obj;
+        return this.tree;
 
     }
 

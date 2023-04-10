@@ -9,19 +9,29 @@ import java.io.*;
 public class FamilyTree<E extends Human> implements Serializable, Iterable<E> {
 
  
+    private List<E> humans;
+    private Writable writable;
 
+    public FamilyTree(Writable writable){
+
+        this.writable=writable;
+    }
+
+    public void setWritable (Writable writable){
+        this.writable=writable;
+    }
     @Override
     public Iterator<E> iterator() {
         // TODO Auto-generated method stub
         return new HumanIterator<E>(humans);
     }
 
-    private List<E> humans;
 
     public FamilyTree() {
         this(new ArrayList<E>());
 
     }
+
 
     private FamilyTree(List<E> humans) {
         this.humans = humans;

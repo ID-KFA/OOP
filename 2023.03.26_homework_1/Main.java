@@ -32,7 +32,7 @@ public class Main {
         file.save(tree);
 
         FamilyTree tree2 = new FamilyTree();
-        tree2 = file.open();
+        tree2 = file.read();
         System.out.println(tree2.getInfo());
         System.out.println();
 
