@@ -42,6 +42,11 @@ public class Human implements Serializable {
         this.year = year;
 
     }
+    public Human(String name, int year) {
+        this.name = name;
+        this.year = year;
+
+    }
 
     public String getName() {
         return name;

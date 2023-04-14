@@ -4,8 +4,7 @@ import java.io.Serializable;
 
 public interface Writable {
     void save(Serializable serializable) throws IOException;
-    FamilyTree read() throws FileNotFoundException, IOException;
 
-    
+    FamilyTree read() throws FileNotFoundException, IOException;
 
 }

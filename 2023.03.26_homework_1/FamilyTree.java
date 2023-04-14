@@ -8,30 +8,29 @@ import java.io.*;
 
 public class FamilyTree<E extends Human> implements Serializable, Iterable<E> {
 
- 
     private List<E> humans;
     private Writable writable;
+    private Human result;
 
-    public FamilyTree(Writable writable){
+    public FamilyTree(Writable writable) {
 
-        this.writable=writable;
+        this.writable = writable;
     }
 
-    public void setWritable (Writable writable){
-        this.writable=writable;
+    public void setWritable(Writable writable) {
+        this.writable = writable;
     }
+
     @Override
     public Iterator<E> iterator() {
         // TODO Auto-generated method stub
         return new HumanIterator<E>(humans);
     }
 
-
     public FamilyTree() {
         this(new ArrayList<E>());
 
     }
-
 
     private FamilyTree(List<E> humans) {
         this.humans = humans;
@@ -57,16 +56,17 @@ public class FamilyTree<E extends Human> implements Serializable, Iterable<E> {
         return res;
 
     }
-    // public Human getByName(String name){
 
-    // for (int i = 0; i < humans.size(); i++) {
-    // if (this.humans.get(i).getName().equals(name))
-    // result=this.humans.get(i);
+    public Human getByName(String name) {
 
-    // }
-    // return result;
+        for (int i = 0; i < humans.size(); i++) {
+            if (this.humans.get(i).getName().equals(name))
+                result = this.humans.get(i);
 
-    // }
+        }
+        return result;
+
+    }
 
     public List<E> getKids(String name) {
 
