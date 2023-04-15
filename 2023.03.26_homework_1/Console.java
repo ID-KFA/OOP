@@ -6,7 +6,7 @@ public class Console implements View {
     private Menu menu;
     private boolean work;
     private Presenter presenter;
-    private String name;
+    private String name, father, mother;
     private int year;
 
     @Override
@@ -59,13 +59,23 @@ public class Console implements View {
     }
 
     public void AddPeople() {
+        name="";
+        father="";
+        mother="";
+
         System.out.println("Input name");
         name = scanner.nextLine();
 
         System.out.println("Input year");
         year = Integer.parseInt(scanner.nextLine());
 
-        presenter.AddPeople(name, year);
+        System.out.println("Input father");
+        father = scanner.nextLine();
+
+        System.out.println("Input mother");
+        mother = scanner.nextLine();
+
+        presenter.AddPeople(name, year, father, mother);
     }
 
 }

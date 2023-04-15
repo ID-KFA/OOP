@@ -42,9 +42,11 @@ public class Human implements Serializable {
         this.year = year;
 
     }
-    public Human(String name, int year) {
+    public Human(String name, int year, Human father, Human mother) {
         this.name = name;
         this.year = year;
+        this.father=father;
+        this.mother=mother;
 
     }
 

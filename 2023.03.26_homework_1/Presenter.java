@@ -24,8 +24,9 @@ public class Presenter {
         view.print(answer);
 
     }
-    public void AddPeople(String name,int year){
-        h=new Human(name, year);
+    public void AddPeople(String name,int year,String father, String mother){
+        
+        h=new Human(name, year,tree.getByName(father),tree.getByName(mother));
         tree.add(h);
         view.print(tree.getInfo());
 
