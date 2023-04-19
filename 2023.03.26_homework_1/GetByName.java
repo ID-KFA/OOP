@@ -12,7 +12,7 @@ public class GetByName extends Command {
 
     @Override
     public void execute() {
-        getConsole().GetByName();
+        getConsole().getByName();
 
     }
 

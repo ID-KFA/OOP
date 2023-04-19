@@ -39,7 +39,7 @@ public class Console implements View {
     }
 
     @Override
-    public void print(List result) {
+    public void print(String result) {
         System.out.println(result);
 
     }
@@ -48,20 +48,20 @@ public class Console implements View {
         work = false;
     }
 
-    public void ShowTree() {
-        presenter.ShowTree();
+    public void showTree() {
+        presenter.showTree();
 
     }
 
-    public void GetByName() {
+    public void getByName() {
         System.out.println("Input name");
-        presenter.GetByName(scanner.nextLine());
+        presenter.getByName(scanner.nextLine());
     }
 
-    public void AddPeople() {
-        name="";
-        father="";
-        mother="";
+    public void addPeople() {
+        name=null;
+        father=null;
+        mother=null;
 
         System.out.println("Input name");
         name = scanner.nextLine();
@@ -75,7 +75,7 @@ public class Console implements View {
         System.out.println("Input mother");
         mother = scanner.nextLine();
 
-        presenter.AddPeople(name, year, father, mother);
+        presenter.addPeople(name, year, father, mother);
     }
 
 }

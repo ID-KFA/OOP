@@ -1,10 +1,9 @@
 import java.util.List;
 
 public interface View {
-        void setPresenter(Presenter Presenter);
+    void setPresenter(Presenter Presenter);
 
-        void start();
+    void start();
 
-        void print(List text);
-    }
-
+    void print(String text);
+}

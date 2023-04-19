@@ -1,34 +1,36 @@
 import java.util.List;
 
+
 public class Presenter {
     private View view;
-    private FamilyTree tree;
-    private List answer;
-    private Human h;
-
-    public Presenter(View view, FamilyTree tree) {
+    private Service service;
+    private String answer;
+   
+    public Presenter(View view, Service service) {
         this.view = view;
-        this.tree = tree;
+        this.service = service;
         view.setPresenter(this);
 
     }
 
-    public void ShowTree() {
-        answer=tree.getInfo();
+    public void showTree() {
+        answer=service.getInfo().toString();
         view.print(answer);
     }
 
-    public void GetByName(String name){
-        answer.clear();
-        answer.add(tree.getByName(name));
+    public void getByName(String name){
+      
+        answer=service.getByName(name).toString();
         view.print(answer);
 
     }
-    public void AddPeople(String name,int year,String father, String mother){
+    public void addPeople(String name,int year,String father, String mother){
+        answer=service.addPeople(name, year, father, mother).toString();
+        view.print(answer);
         
-        h=new Human(name, year,tree.getByName(father),tree.getByName(mother));
-        tree.add(h);
-        view.print(tree.getInfo());
+        // h=new Human(name, year,service.getByName(father),service.getByName(mother));
+        // service.add(h);
+        // view.print(service.getInfo());
 
     }
 

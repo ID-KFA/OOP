@@ -12,8 +12,7 @@ public class ShowTree extends Command {
 
     @Override
     public void execute() {
-        getConsole().ShowTree();
-      
+        getConsole().showTree();
 
     }
 

@@ -45,28 +45,28 @@ public class FamilyTree<E extends Human> implements Serializable, Iterable<E> {
         return humans;
     }
 
-    public List<E> getInfo() {
-        List res = new ArrayList();
-        String str;
-        for (int i = 0; i < humans.size(); i++) {
-            str = humans.get(i).toString();
-            res.add(str);
+    // public List<E> getInfo() {
+    //     List res = new ArrayList();
+    //     String str;
+    //     for (int i = 0; i < humans.size(); i++) {
+    //         str = humans.get(i).toString();
+    //         res.add(str);
 
-        }
-        return res;
+    //     }
+    //     return res;
 
-    }
+    // }
 
-    public Human getByName(String name) {
+    // public Human getByName(String name) {
 
-        for (int i = 0; i < humans.size(); i++) {
-            if (this.humans.get(i).getName().equals(name))
-                result = this.humans.get(i);
+    //     for (int i = 0; i < humans.size(); i++) {
+    //         if (this.humans.get(i).getName().equals(name))
+    //             result = this.humans.get(i);
 
-        }
-        return result;
+    //     }
+    //     return result;
 
-    }
+    // }
 
     public List<E> getKids(String name) {
 

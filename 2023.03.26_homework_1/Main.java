@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         FamilyTree<Human> tree = new FamilyTree();
-        Service service = new Service(tree);
+      
 
         Human h1 = new Human("Sergei", Gender.Male, 1947);
         Human h2 = new Human("Maria", Gender.Female, 1948);
@@ -18,7 +18,8 @@ public class Main {
         tree.add(h4);
 
         View view = new Console();
-        Presenter presenter = new Presenter(view, tree);
+        Service service = new Service(tree);
+        Presenter presenter = new Presenter(view, service);
         view.start();
 
         // System.out.println(tree.getInfo());

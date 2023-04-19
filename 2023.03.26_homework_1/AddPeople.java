@@ -12,7 +12,7 @@ public class AddPeople extends Command {
 
     @Override
     public void execute() {
-        getConsole().AddPeople();
+        getConsole().addPeople();
       
 
     }
