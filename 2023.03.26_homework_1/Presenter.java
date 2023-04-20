@@ -1,11 +1,11 @@
-import java.util.List;
-
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Presenter {
     private View view;
     private Service service;
     private String answer;
-   
+
     public Presenter(View view, Service service) {
         this.view = view;
         this.service = service;
@@ -13,26 +13,49 @@ public class Presenter {
 
     }
 
+    public void openFile() {
+        try {
+            answer = service.read().getHumanList().toString();
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+        view.print(answer);
+    }
+
+    public void saveFile() {
+
+        try {
+            service.save();
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+
+    }
+
     public void showTree() {
-        answer=service.getInfo().toString();
+        answer = service.getInfo().toString();
         view.print(answer);
     }
 
-    public void getByName(String name){
-      
-        answer=service.getByName(name).toString();
+    public void getByName(String name) {
+
+        answer = service.getByName(name).toString();
         view.print(answer);
 
     }
-    public void addPeople(String name,int year,String father, String mother){
-        answer=service.addPeople(name, year, father, mother).toString();
+
+    public void addPeople(String name, int year, String father, String mother) {
+        answer = service.addPeople(name, year, father, mother).toString();
         view.print(answer);
-        
-        // h=new Human(name, year,service.getByName(father),service.getByName(mother));
-        // service.add(h);
-        // view.print(service.getInfo());
 
     }
 
-    
 }

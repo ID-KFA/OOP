@@ -10,9 +10,12 @@ public class Menu {
     public Menu(Console console) {
         this.console = console;
         commands = new ArrayList();
+
+        commands.add(new OpenFile(console));
         commands.add(new ShowTree(console));
         commands.add(new GetByName(console));
         commands.add(new AddPeople(console));
+        commands.add(new SaveFile(console));
         commands.add(new Exit(console));
 
     }

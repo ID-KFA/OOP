@@ -48,6 +48,13 @@ public class Console implements View {
         work = false;
     }
 
+    public void openFile(){
+        presenter.openFile();
+    }
+    public void saveFile(){
+        presenter.saveFile();
+    }
+
     public void showTree() {
         presenter.showTree();
 
